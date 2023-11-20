@@ -142,7 +142,7 @@ class DialogueBox extends FlxSpriteGroup
 		swagDialogue = new FlxTypeText(240, 500, Std.int(FlxG.width * 0.6), "", 32);
 		swagDialogue.font = 'Pixel Arial 11 Bold';
 		swagDialogue.color = 0xFF3F2021;
-		swagDialogue.sounds = [FlxG.sound.load(Paths.sound('pixelText'), 0.6)];
+		//swagDialogue.sounds = [FlxG.sound.load(Paths.sound('pixelText'), 0.6)];
 		add(swagDialogue);
 
 		dialogue = new Alphabet(0, 80, "", false, true);
@@ -239,7 +239,7 @@ class DialogueBox extends FlxSpriteGroup
 			else if (dialogueStarted)
 			{
 				FlxG.sound.play(Paths.sound('clickText'), 0.8);
-				swagDialogue.skip();
+				//swagDialogue.skip();
 				
 				if(skipDialogueThing != null) {
 					skipDialogueThing();
@@ -260,12 +260,12 @@ class DialogueBox extends FlxSpriteGroup
 		// add(theDialog);
 
 		// swagDialogue.text = ;
-		swagDialogue.resetText(dialogueList[0]);
-		swagDialogue.start(0.04, true);
-		swagDialogue.completeCallback = function() {
+		//swagDialogue.resetText(dialogueList[0]);
+		//swagDialogue.start(0.04, true);
+		/*swagDialogue.completeCallback = function() {
 			handSelect.visible = true;
 			dialogueEnded = true;
-		};
+		};*/
 
 		handSelect.visible = false;
 		dialogueEnded = false;
