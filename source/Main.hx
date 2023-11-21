@@ -64,20 +64,7 @@ class Main extends Sprite
 	private function setupGame():Void
 	{
 		var stageWidth:Int = Lib.current.stage.stageWidth;
-		var stageHeight:Int = Lib.current.stage.stageHeight;
-
-		if (zoom == -1)
-		{
-			var ratioX:Float = stageWidth / gameWidth;
-			var ratioY:Float = stageHeight / gameHeight;
-			zoom = Math.min(ratioX, ratioY);
-			gameWidth = Math.ceil(stageWidth / zoom);
-			gameHeight = Math.ceil(stageHeight / zoom);
-		}
-
-		#if !debug
-		initialState = TitleState;
-		#end     
+		var stageHeight:Int = Lib.current.stage.stageHeight;     
 
 		ClientPrefs.loadDefaultKeys();
 		SUtil.doTheCheck();
