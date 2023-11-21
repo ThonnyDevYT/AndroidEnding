@@ -15,7 +15,7 @@ class OptionsState extends MusicBeatState
 		'Graphics',
 		'Visuals UI',
 		'Gameplay',
-		#if android, 'Mobile Controls'#end
+		'Mobile Controls',
 		'NewOptions',
 		#if DEMO_MODE
 		'Debug Config'
