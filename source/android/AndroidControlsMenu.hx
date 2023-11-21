@@ -41,21 +41,21 @@ class AndroidControlsMenu extends MusicBeatState
 		bg.color = FlxColor.fromHSB(FlxG.random.int(0, 359), FlxG.random.float(0, 0.8), FlxG.random.float(0.3, 1));
 		add(bg);
 
-		var titleText:Alphabet = new Alphabet(0, 0, "Android Controls", true, false, 0, 0.6);
+		var titleText:Alphabet = new Alphabet(0, 0, "Android Controls", true);
 		titleText.x += 60;
 		titleText.y += 40;
 		titleText.alpha = 0.4;
 		add(titleText);
 
-		vpad = new FlxVirtualPad(RIGHT_FULL, NONE, 0.75, ClientPrefs.globalAntialiasing);
+		vpad = new FlxVirtualPad(RIGHT_FULL, NONE, 0.75, ClientPrefs.data.antialiasing);
 		vpad.alpha = 0;
 		add(vpad);
 
-		hbox = new FlxHitbox(0.75, ClientPrefs.globalAntialiasing);
+		hbox = new FlxHitbox(0.75, ClientPrefs.data.antialiasing);
 		hbox.visible = false;
 		add(hbox);
 
-		inputvari = new Alphabet(0, 50, controlitems[curSelected], false, false, 0.05, 0.8);
+		inputvari = new Alphabet(0, 50, controlitems[curSelected], false);
 		inputvari.screenCenter(X);
 		add(inputvari);
 
@@ -142,7 +142,7 @@ class AndroidControlsMenu extends MusicBeatState
 		if (curSelected >= controlitems.length)
 			curSelected = 0;
 	
-		inputvari.changeText(controlitems[curSelected]);
+		inputvari.text = (controlitems[curSelected]);
 
 		var daChoice:String = controlitems[Math.floor(curSelected)];
 
@@ -150,20 +150,20 @@ class AndroidControlsMenu extends MusicBeatState
 		{
 				case 'Pad-Right':
 					remove(vpad);
-					vpad = new FlxVirtualPad(RIGHT_FULL, NONE, 0.75, ClientPrefs.globalAntialiasing);
+					vpad = new FlxVirtualPad(RIGHT_FULL, NONE, 0.75, ClientPrefs.data.antialiasing);
 					add(vpad);
 				case 'Pad-Left':
 					remove(vpad);
-					vpad = new FlxVirtualPad(FULL, NONE, 0.75, ClientPrefs.globalAntialiasing);
+					vpad = new FlxVirtualPad(FULL, NONE, 0.75, ClientPrefs.data.antialiasing);
 					add(vpad);
 				case 'Pad-Custom':
 					remove(vpad);
-					vpad = new FlxVirtualPad(RIGHT_FULL, NONE, 0.75, ClientPrefs.globalAntialiasing);
+					vpad = new FlxVirtualPad(RIGHT_FULL, NONE, 0.75, ClientPrefs.data.antialiasing);
 					add(vpad);
 					loadcustom();
 				case 'Duo':
 					remove(vpad);
-					vpad = new FlxVirtualPad(DUO, NONE, 0.75, ClientPrefs.globalAntialiasing);
+					vpad = new FlxVirtualPad(DUO, NONE, 0.75, ClientPrefs.data.antialiasing);
 					add(vpad);
 				case 'Hitbox':
 					vpad.alpha = 0;

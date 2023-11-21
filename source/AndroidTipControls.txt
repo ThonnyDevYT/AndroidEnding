@@ -1,0 +1,2 @@
+Añadir Controles de Juego
+addAndroidControls();
