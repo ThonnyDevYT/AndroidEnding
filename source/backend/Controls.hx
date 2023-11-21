@@ -5,6 +5,14 @@ import flixel.input.gamepad.FlxGamepadInputID;
 import flixel.input.gamepad.mappings.FlxGamepadMapping;
 import flixel.input.keyboard.FlxKey;
 
+import flixel.FlxG;
+import flixel.input.FlxInput;
+import flixel.input.actions.FlxAction;
+import flixel.input.actions.FlxActionInput;
+import flixel.input.actions.FlxActionInputDigital;
+import flixel.input.actions.FlxActionManager;
+import flixel.input.actions.FlxActionSet;
+
 #if android
 import flixel.group.FlxGroup;
 import android.FlxHitbox;
