@@ -19,7 +19,7 @@ class PreloadingState extends MusicBeatState
     override function create() {
         super.create();
         
-        ClientPrefs.loadPrefs();
+        ClientPrefs.data.loadPrefs();
 
         bg = new FlxSprite().loadGraphic(Paths.image('BGMenu/TitleMenu'));
         bg.antialiasing = ClientPrefs.data.antialiasing;
@@ -69,8 +69,8 @@ class PreloadingState extends MusicBeatState
             if (FlxG.keys.justPressed.Y) {
                 ClientPrefs.data.Welcome = true;
                 trace('Welcome = true');
-                  ClientPrefs.saveSettings();
-                  ClientPrefs.loadPrefs();
+                  ClientPrefs.data.saveSettings();
+                  ClientPrefs.data.loadPrefs();
                   Press = true;
                   FlxG.sound.play(Paths.sound('confirmMenu'));
                   //FlxFlicker.flicker(WarnText2, 1, 0.3, false, true, function(flk:FlxFlicker) {
@@ -94,8 +94,8 @@ class PreloadingState extends MusicBeatState
         
             if (FlxG.keys.justPressed.N) {
             ClientPrefs.data.Welcome = true;
-            ClientPrefs.saveSettings();
-            ClientPrefs.loadPrefs();
+            ClientPrefs.data.saveSettings();
+            ClientPrefs.data.loadPrefs();
             FlxG.sound.play(Paths.sound('cancelMenu'));
             FlxTween.tween(WarnTextBack, {alpha: 0}, 5, {
                 onComplete: function (twn:FlxTween) {
@@ -113,7 +113,7 @@ class PreloadingState extends MusicBeatState
 
             FlxTween.tween(bg, {alpha: 0}, 5, {
                 onComplete: function (twn:FlxTween) {
-                    ClientPrefs.loadPrefs();
+                    ClientPrefs.data.loadPrefs();
                     trace('Fondo Desaparecido!!');
 
                    MusicBeatState.switchState(new TitleState());

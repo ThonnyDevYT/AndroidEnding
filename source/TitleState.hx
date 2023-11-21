@@ -169,7 +169,7 @@ class TitleState extends MusicBeatState
 
 		super.create();
 
-		ClientPrefs.loadPrefs();
+		ClientPrefs.data.loadPrefs();
 
 		if (ClientPrefs.data.Welcome == true) {
 			trace('cheking for release video');
@@ -538,9 +538,9 @@ class TitleState extends MusicBeatState
 			if(controls.UI_RIGHT) swagShader.hue += elapsed * 0.1;
 		}
 
-		ClientPrefs.loadPrefs();
+		ClientPrefs.data.loadPrefs();
 
-		ClientPrefs.saveSettings();
+		ClientPrefs.data.saveSettings();
 
 		super.update(elapsed);
 	}

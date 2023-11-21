@@ -169,7 +169,7 @@ class MainMenuState extends MusicBeatState
 
 		FlxG.sound.music.fadeIn(3, 0.1, 0.8);
 
-		ClientPrefs.saveSettings();
+		ClientPrefs.data.saveSettings();
 
 		camGame = new FlxCamera();
 		camAchievement = new FlxCamera();

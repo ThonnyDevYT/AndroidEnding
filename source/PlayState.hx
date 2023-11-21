@@ -380,7 +380,7 @@ class PlayState extends MusicBeatState
 		instance = this;
 
 		PauseModeSubState.songName = null; //Reset to default
-		playbackRate = ClientPrefs.getGameplaySetting('songspeed');
+		playbackRate = ClientPrefs.data.getGameplaySetting('songspeed');
 		fullComboFunction = fullComboUpdate;
 
 		keysArray = [
@@ -394,11 +394,11 @@ class PlayState extends MusicBeatState
 			FlxG.sound.music.stop();
 
 		// Gameplay settings
-		healthGain = ClientPrefs.getGameplaySetting('healthgain');
-		healthLoss = ClientPrefs.getGameplaySetting('healthloss');
-		instakillOnMiss = ClientPrefs.getGameplaySetting('instakill');
-		practiceMode = ClientPrefs.getGameplaySetting('practice');
-		cpuControlled = ClientPrefs.getGameplaySetting('botplay');
+		healthGain = ClientPrefs.data.getGameplaySetting('healthgain');
+		healthLoss = ClientPrefs.data.getGameplaySetting('healthloss');
+		instakillOnMiss = ClientPrefs.data.getGameplaySetting('instakill');
+		practiceMode = ClientPrefs.data.getGameplaySetting('practice');
+		cpuControlled = ClientPrefs.data.getGameplaySetting('botplay');
 
 		// var gameCam:FlxCamera = FlxG.camera;
 		camGame = new FlxCamera();
@@ -1548,13 +1548,13 @@ class PlayState extends MusicBeatState
 	{
 		// FlxG.log.add(ChartParser.parse());
 		songSpeed = PlayState.SONG.speed;
-		songSpeedType = ClientPrefs.getGameplaySetting('scrolltype');
+		songSpeedType = ClientPrefs.data.getGameplaySetting('scrolltype');
 		switch(songSpeedType)
 		{
 			case "multiplicative":
-				songSpeed = SONG.speed * ClientPrefs.getGameplaySetting('scrollspeed');
+				songSpeed = SONG.speed * ClientPrefs.data.getGameplaySetting('scrollspeed');
 			case "constant":
-				songSpeed = ClientPrefs.getGameplaySetting('scrollspeed');
+				songSpeed = ClientPrefs.data.getGameplaySetting('scrollspeed');
 		}
 
 		var songData = SONG;
@@ -2578,7 +2578,7 @@ class PlayState extends MusicBeatState
 					if(flValue1 == null) flValue1 = 1;
 					if(flValue2 == null) flValue2 = 0;
 
-					var newValue:Float = SONG.speed * ClientPrefs.getGameplaySetting('scrollspeed') * flValue1;
+					var newValue:Float = SONG.speed * ClientPrefs.data.getGameplaySetting('scrollspeed') * flValue1;
 					if(flValue2 <= 0)
 						songSpeed = newValue;
 					else
@@ -2621,7 +2621,7 @@ class PlayState extends MusicBeatState
 					{
 						if(flValue2 == null) flValue2 = 1;
 	
-						var newValue:Float = SONG.speed * ClientPrefs.getGameplaySetting('scrollspeed') * flValue1;
+						var newValue:Float = SONG.speed * ClientPrefs.data.getGameplaySetting('scrollspeed') * flValue1;
 						if(flValue2 <= 0)
 							songSpeed = newValue;
 						else
@@ -2854,7 +2854,7 @@ class PlayState extends MusicBeatState
 //						FlxG.sound.playMusic(Paths.music(ClientPrefs.data.musicstate), 0.7);
 
 						// if ()
-						if(!ClientPrefs.getGameplaySetting('practice') && !ClientPrefs.getGameplaySetting('botplay')) {
+						if(!ClientPrefs.data.getGameplaySetting('practice') && !ClientPrefs.data.getGameplaySetting('botplay')) {
 							StoryMenuState.weekCompleted.set(WeekData.weeksList[storyWeek], true);
 							Highscore.saveWeekScore(WeekData.getWeekFileName(), campaignScore, storyDifficulty);
 	
@@ -3599,7 +3599,7 @@ class PlayState extends MusicBeatState
 				var animToPlay:String = singAnimations[Std.int(Math.abs(Math.min(singAnimations.length-1, note.noteData)))];
 
 				var char:Character = boyfriend;
-				var newValue22:Float = SONG.speed * ClientPrefs.getGameplaySetting('scrollspeed') * 1.1;
+				var newValue22:Float = SONG.speed * ClientPrefs.data.getGameplaySetting('scrollspeed') * 1.1;
 				if(note.velocityadd) {
 
 					songSpeedTween = FlxTween.tween(this, {songSpeed: newValue22}, 0.1 / playbackRate, {ease: FlxEase.linear, onComplete:
@@ -4115,7 +4115,7 @@ class PlayState extends MusicBeatState
 	{
 		if(chartingMode) return null;
 
-		var usedPractice:Bool = (ClientPrefs.getGameplaySetting('practice') || ClientPrefs.getGameplaySetting('botplay'));
+		var usedPractice:Bool = (ClientPrefs.data.getGameplaySetting('practice') || ClientPrefs.data.getGameplaySetting('botplay'));
 		for (i in 0...achievesToCheck.length) {
 			var achievementName:String = achievesToCheck[i];
 			/*if(!Achievements.isAchievementUnlocked(achievementName) && !cpuControlled && Achievements.getAchievementIndex(achievementName) > -1) {

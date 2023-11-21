@@ -51,7 +51,7 @@ class Paths
 
 	public static function destroyLoadedImages(ignoreCheck:Bool = false) {
 		#if MODS_ALLOWED
-		if(!ignoreCheck && ClientPrefs.imagesPersist) return; //If there's 20+ images loaded, do a cleanup just for preventing a crash
+		if(!ignoreCheck && ClientPrefs.data.imagesPersist) return; //If there's 20+ images loaded, do a cleanup just for preventing a crash
 
 		for (key in customImagesLoaded.keys()) {
 			var graphic:FlxGraphic = FlxG.bitmap.get(key);
