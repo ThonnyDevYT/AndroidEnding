@@ -22,7 +22,7 @@ import backend.WeekData;
 import backend.Song;
 import backend.Section;
 import backend.Rating;
-import objects.Notification;
+import Notification;
 import flixel.input.keyboard.FlxKey;
 
 import backend.InputFormatter;

@@ -18,7 +18,7 @@ import openfl.filters.GlowFilter;
 
 import substates.Prompt;
 import flixel.FlxState;
-import objects.Notification;
+import Notification;
 
 import flixel.input.FlxPointer;
 //import flixel.addons.display.shapes.FlxShapeCircle;
@@ -34,7 +34,7 @@ import lime.app.Application;
 import flash.text.TextField;
 
 import objects.AchievementPopup;
-import objects.Notification;
+import Notification;
 import states.editors.MasterEditorMenu;
 import options.OptionsState;
 //import openfl.display.Internet;
