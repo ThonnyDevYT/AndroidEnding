@@ -55,6 +55,7 @@ jobs:
           haxelib install hxp 1.2.2
           haxelib install hscript 2.5.0
           haxelib install flixel-addons 3.0.0
+          haxelib install tjson 1.4.0
           haxelib git discord_rpc https://github.com/ThonnyDevYT/linc_discord-rpc
           haxelib git flxanimate https://github.com/ThonnyDevYT/flxanimate
           haxelib git linc_luajit https://github.com/ThonnyDevYT/linc_luajit
