@@ -20,7 +20,7 @@ import android.FlxVirtualPad;
 import flixel.ui.FlxButton;
 #end
 
-class Controls
+class Controls extends FlxActionSet
 {
 	//Keeping same use cases on stuff for it to be easier to understand/use
 	//I'd have removed it but this makes it a lot less annoying to use in my opinion
