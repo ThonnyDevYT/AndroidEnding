@@ -1,9 +1,9 @@
 package states;
 
 import openfl.ui.MouseCursor;
-import backend.WeekData;
-import backend.Highscore;
-import objects.Notification;
+import WeekData;
+import Highscore;
+import Notification;
 import sys.io.File;
 import lime.app.Application;
 
@@ -28,11 +28,11 @@ import shaders.ColorSwap;
 
 import flixel.input.mouse.FlxMouse;
 
-import substates.Prompt;
+import Prompt;
 
-import states.StoryMenuState;
-import states.OutdatedState;
-import states.MainMenuState;
+import StoryMenuState;
+import OutdatedState;
+import MainMenuState;
 //import openfl.display.Internet;
 
 #if MODS_ALLOWED
@@ -350,46 +350,6 @@ class TitleState extends MusicBeatState
 		titleTxt2.visible = false;
 		titleTxt2.screenCenter(X);
 
-		if (ClientPrefs.data.graphics_internal == 'Low') {
-			ClientPrefs.data.antialiasing = false;
-			ClientPrefs.data.lowQuality = true;
-			ClientPrefs.data.framerate = 60;
-			ClientPrefs.data.recordoptimization = "enabled";
-			ClientPrefs.data.shaders = false;
-			ClientPrefs.data.SpritesFPS = 16;
-			ClientPrefs.data.alphahud = true;
-			ClientPrefs.data.ultraMode = false;
-		}
-		if (ClientPrefs.data.graphics_internal == 'Medium') {
-			ClientPrefs.data.antialiasing = false;
-			ClientPrefs.data.lowQuality = true;
-			ClientPrefs.data.framerate = 75;
-			ClientPrefs.data.recordoptimization = "Disabled";
-			ClientPrefs.data.shaders = false;
-			ClientPrefs.data.SpritesFPS = 24;
-			ClientPrefs.data.ultraMode = false;
-		}
-		if (ClientPrefs.data.graphics_internal == 'High') {
-			ClientPrefs.data.antialiasing = true;
-			ClientPrefs.data.lowQuality = false;
-			ClientPrefs.data.framerate = 85;
-			ClientPrefs.data.recordoptimization = "Disabled";
-			ClientPrefs.data.shaders = true;
-			ClientPrefs.data.SpritesFPS = 24;
-			ClientPrefs.data.ultraMode = false;
-		}
-		if (ClientPrefs.data.graphics_internal == 'Ultra') {
-			ClientPrefs.data.antialiasing = true;
-			ClientPrefs.data.lowQuality = false;
-			ClientPrefs.data.framerate = 100;
-			ClientPrefs.data.recordoptimization = "Disabled";
-			ClientPrefs.data.shaders = true;
-			ClientPrefs.data.SpritesFPS = 32;
-			ClientPrefs.data.alphahud = true;
-			ClientPrefs.data.ultraMode = true;
-		}
-
-
 		//tweens.tween(logoBl.alpha, 1, 2);
 		//tweens.onUpdate = function(Float):Void {
 		//	logoBl.alpha = 1;
@@ -487,10 +447,6 @@ class TitleState extends MusicBeatState
 
 	override function update(elapsed:Float)
 	{
-
-		Line = FlxG.random.int(400, 480);
-		Line2 = FlxG.random.int(510, 622);
-
 		if (FlxG.keys.justPressed.Y) {
 			FlxG.sound.play(Paths.sound('cancelMenu'));
 			FlxG.camera.flash(ClientPrefs.data.flashing ? FlxColor.RED : 0x4CFF0000, 1);
